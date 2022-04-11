@@ -32,6 +32,34 @@ export async function createAdmin(employee) {
     return checkError(response);
 }
 
+//function takes in from employee sign up form and generates employee information on supabase
+export async function createEmployee(employee) {
+    const response = await client
+        .from('employees')
+        .insert({
+            name: employee.name,
+            email: employee.email,
+            avatar_img: employee.avatar_img,
+            user_id: employee.user_id,
+            business_code: employee.business_code,
+            is_admin: false
+        });
+
+    return checkError(response);
+}
+
+//function allows user to chat in chat page
+export async function sendChat(someMessage) {
+    const response = await client
+        .from('chats')
+        .insert(someMessage)
+        .single();
+
+    return checkError(response);
+}
+
+
+
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
@@ -50,6 +78,8 @@ export function redirectIfLoggedIn() {
 
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
+
+    // await createEmployee(employee);
 
     return response.user;
 }

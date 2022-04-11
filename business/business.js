@@ -4,7 +4,7 @@ import { checkAuth,
     createAdmin,
     signupUser } from '../fetch-utils.js';
 
-checkAuth();
+// checkAuth();
 
 const logoutButton = document.getElementById('logout');
 

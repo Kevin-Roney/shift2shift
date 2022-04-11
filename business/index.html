@@ -13,22 +13,17 @@
     <title>Document</title>
 </head>
 
-<body>
-    <header>
-        <div class="gutter-right logo">
-            <img src="../assets/big-logo.png" />
-        </div>
-    </header>    
+<body> 
     <button id="logout">Logout</button>
     <main>
-        <h1>You are logged in!</h1>
+        <h1></h1>
         <form>
-            
+            <label>Business Name</label><input type="text" name="name" placeholder="Business Name"/>
+            <label>Email</label><input type="email" name="email" placeholder="example@email.com"/>
+            <label>Password</label><input type="password" name="password" placeholder="*******"/>
+            <label>Profile Picture</label><input type="file" name="image" placeholder="file"/>
         </form>
     </main>
-    <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
-    </footer>
     <script type="module" src="./business.js"></script>
 </body>
 

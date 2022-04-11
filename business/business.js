@@ -1,5 +1,4 @@
 import { checkAuth, 
-    logout, 
     createBusiness,
     createAdmin,
     signupUser,
@@ -7,13 +6,7 @@ import { checkAuth,
 
 // checkAuth();
 
-const logoutButton = document.getElementById('logout');
 const businessSignUpForm = document.querySelector('form');
-
-
-logoutButton.addEventListener('click', () => {
-    logout();
-});
 
 businessSignUpForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -41,6 +34,5 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     } else {
         console.error(user);
     }
-    console.log(code);
     businessSignUpForm.reset();
 });

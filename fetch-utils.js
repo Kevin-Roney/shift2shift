@@ -70,7 +70,7 @@ export function checkAuth() {
 
 export function redirectIfLoggedIn() {
     if (getUser()) {
-        location.replace('./business');
+        location.replace('./main');
     }
 }
 

@@ -58,8 +58,6 @@ export async function sendChat(someMessage) {
     return checkError(response);
 }
 
-
-
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
@@ -72,7 +70,7 @@ export function checkAuth() {
 
 export function redirectIfLoggedIn() {
     if (getUser()) {
-        location.replace('./other-page');
+        location.replace('./business');
     }
 }
 

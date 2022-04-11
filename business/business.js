@@ -2,7 +2,10 @@ import { checkAuth,
     createBusiness,
     createAdmin,
     signupUser,
-    redirectIfLoggedIn } from '../fetch-utils.js';
+    redirectIfLoggedIn,
+    uploadImage,
+    makeImageUrl,
+    getUser } from '../fetch-utils.js';
 
 // checkAuth();
 
@@ -20,14 +23,17 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     await createBusiness({
         name: bizName,
         business_code: code
-
+        
     });
     await signupUser(email, password);
+    const image = data.get('image');
+    const uploadedImage = await uploadImage(image);
+    const URL = makeImageUrl(uploadedImage.Key);
     await createAdmin({
         name: admin,
         business_code: code,
-        avatar: data.file,
         email: email,
+        avatar_img: URL
     });
     if (user) {
         redirectIfLoggedIn();
@@ -35,4 +41,7 @@ businessSignUpForm.addEventListener('submit', async (event) => {
         console.error(user);
     }
     businessSignUpForm.reset();
+});
+window.addEventListener('load', () => {
+    console.log(getUser());
 });

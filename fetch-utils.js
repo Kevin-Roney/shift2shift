@@ -3,6 +3,20 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export function makeImageUrl(imagekey) {
+    return `${SUPABASE_URL}/storage/v1/object/public/${imagekey}`;
+}
+export async function uploadImage(myImageFile) {
+    const response = await client
+        .storage
+        .from('avatars')
+        .upload(myImageFile.name, myImageFile, {
+            cacheControl: '3600',
+            upsert: false
+        });
+    return checkError(response);
+}
+
 //Takes business name input from signup form and inserts name and random generated code into businesses table on supabase
 export async function createBusiness(business) {
     const response = await client
@@ -24,7 +38,7 @@ export async function createAdmin(employee) {
             business_code: employee.business_code,
             shift: 3,
             is_admin: true,
-            avatar: employee.avatar_img,
+            avatar_img: employee.avatar_img,
             email: employee.email,
             user_id: employee.user_id
         });

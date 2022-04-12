@@ -1,4 +1,5 @@
-import { checkAuth, 
+
+import { 
     createBusiness,
     createAdmin,
     signupUser,
@@ -7,9 +8,8 @@ import { checkAuth,
     makeImageUrl,
     getUser } from '../fetch-utils.js';
 
-// checkAuth();
-
 const businessSignUpForm = document.querySelector('form');
+
 
 businessSignUpForm.addEventListener('submit', async (event) => {
     event.preventDefault();

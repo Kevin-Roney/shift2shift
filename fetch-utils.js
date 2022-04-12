@@ -84,7 +84,7 @@ export function checkAuth() {
 
 export function redirectIfLoggedIn() {
     if (getUser()) {
-        location.replace('./main');
+        location.replace('../main');
     }
 }
 

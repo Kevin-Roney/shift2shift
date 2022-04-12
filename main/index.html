@@ -17,18 +17,18 @@
 <body> 
     <button id="logout">Logout</button>
     <main>
+        <form id="todoListForm">
+            <label for="todo">To-Do:</label>
+            <input name="todo" required />
+            <label for="urgency">Urgency:</label>
+            <select name="urgency">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+             </select>
+             <button>Submit</button>
+         </form>
        <section class="todosContainer">
-            <form id="todoListForm">
-                <label for="todo">To-Do:</label>
-                <input name="todo" required />
-                <label for="urgency">Urgency:</label>
-                <select name="urgency">
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                </select>
-                <button>Submit</button>
-            </form>
         </section>
        <section class="shiftNotesContainer">
 

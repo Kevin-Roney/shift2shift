@@ -62,6 +62,56 @@ export async function createEmployee(employee) {
     return checkError(response);
 }
 
+export async function getEmployee() {
+    const user = await getUser();
+    const response = await client  
+        .from('employees')
+        .select('*')
+        .match({ user_id: user.id })
+        .single();
+    
+    return checkError(response);
+}
+
+// creates a single incomplete todo with the correct todo property for this user in supabase
+export async function createTodo(todo) {
+    const response = await client 
+        .from('todos')
+        .insert({
+            todo_name: todo.todo_name,
+            urgency: todo.urgency,
+            is_complete: false,
+            completed_by: null,
+            business_code: todo.business_code,
+        });
+
+    return checkError(response);
+}
+
+// gets all todos for the specific business associated with that code
+export async function getTodo(todo) {
+    const response = await client 
+        .from('todos')
+        .select('*')
+        .match({
+            business_code: todo.business_code
+        });
+    
+    return checkError(response);
+}
+
+// updating the todo to complete that matches the correct business code
+export async function completeTodo(todo, user) {
+    const response = await client 
+        .from('todos')
+        .update({ is_complete: true, completed_by: user.name })
+        .match({ id: todo.id });
+    
+    return checkError(response);
+}
+
+
+
 //function allows user to chat in chat page
 export async function sendChat(someMessage) {
     const response = await client

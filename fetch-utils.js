@@ -84,7 +84,7 @@ export async function createTodo(todo) {
             completed_by: null,
             business_code: todo.business_code,
         });
-
+    console.log(response);
     return checkError(response);
 }
 
@@ -96,7 +96,7 @@ export async function getTodo(todo) {
         .match({
             business_code: todo.business_code
         });
-    
+    console.log(response);
     return checkError(response);
 }
 
@@ -104,9 +104,10 @@ export async function getTodo(todo) {
 export async function completeTodo(todo, user) {
     const response = await client 
         .from('todos')
-        .update({ is_complete: true, completed_by: user.name })
-        .match({ id: todo.id });
+        .update({ is_complete: true, completed_by: user })
+        .match({ id: todo });
     
+    console.log(todo, user);
     return checkError(response);
 }
 

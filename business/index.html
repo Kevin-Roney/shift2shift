@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body> 
+    <main>
+        <header><div>Not an employer click <a href="../employee">here</a> </div></header>
+        <img src="../assets/shift2shiftrough.png" alt="logo"/>
+        <form class="signup-form">
+            <label>Business Name</label><input type="text" name="bizName" placeholder="Business Name"/>
+            <label>Administrator Name</label><input type="text" name="adminName" placeholder="Your Name"/>
+            <label>Email</label><input type="email" name="email" placeholder="example@email.com"/>
+            <label>Password</label><input type="password" name="password" placeholder="*******"/>
+            <label>Profile Picture</label><input type="file" name="image" placeholder="file"/>
+            <button>Sign Up</button>
+        </form>
+        
+    </main>
+    <script type="module" src="./business.js"></script>
+</body>
+
+</html>

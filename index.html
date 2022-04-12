@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- test -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,41 +11,38 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles/splash.css">
+    <title>Shift2Shift</title>
 </head>
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="assets/big-logo.png" />
-        </div>
+    
     </header>
-    <main class="auth-main">
-        <div class="left">
-            <div class="auth-container">
-                <form id="sign-in">
-                    <h3>Sign In</h3>
-                    <label>Email </label><input type="email" name="email" id="sign-in-email"/>
-                    <label>Password </label><input type="password" name="password" id="sign-in-password"/>
-                    <button>Submit</button>
-                </form>
+    <main class="splash-main">
+        <img class = "logo" alt="logo" src="./assets/shift2shiftrough.png">
+        <div class="splash-container">
+            <div class="left">
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Tristique senectus et netus et malesuada fames ac turpis. Sed odio morbi quis commodo odio aenean sed adipiscing. Sit amet nisl suscipit adipiscing bibendum. 
+                    Vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Risus in hendrerit gravida rutrum quisque non tellus orci ac. 
+                    Turpis nunc eget lorem dolor sed viverra. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Eget duis at tellus at urna condimentum. Nam libero justo laoreet sit amet. 
+                    Sed odio morbi quis commodo. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+                </div>
             </div>
+
+            <div class="right">
+                Right
+            </div>
+
         </div>
-        <div class="right">
-            <div class="auth-container">
-                <form id='sign-up'>
-                    <h3>Sign Up</h3>
-                    <label>Email </label><input type='email' name='email' id="sign-up-email" />
-                    <label>Password </label><input type='password' name='password' id="sign-up-password" />
-                    <button>Submit</button>
-                </form>
-            </div>
+        <div class="splash-btn-container">
+            <button class="startUsing">GET STARTED TODAY!</button>
+            <button class="aboutUsBtn">ABOUT US</button>
         </div>
     </main>
-    <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
-    </footer>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./splash.js"></script>
 </body>
 
 </html>

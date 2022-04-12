@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 import { 
     createBusiness,
@@ -5,8 +6,7 @@ import {
     signupUser,
     redirectIfLoggedIn,
     uploadImage,
-    makeImageUrl,
-    getUser } from '../fetch-utils.js';
+    makeImageUrl } from '../fetch-utils.js';
 
 const businessSignUpForm = document.querySelector('form');
 
@@ -41,7 +41,4 @@ businessSignUpForm.addEventListener('submit', async (event) => {
         console.error(user);
     }
     businessSignUpForm.reset();
-});
-window.addEventListener('load', () => {
-    console.log(getUser());
 });

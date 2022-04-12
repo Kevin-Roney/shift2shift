@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { 
     makeImageUrl,
     createEmployee,
@@ -5,7 +6,7 @@ import {
     redirectIfLoggedIn,
     signupUser } from '../fetch-utils.js';
 
-    const employeeSignUpForm = document.querySelector('form');
+const employeeSignUpForm = document.querySelector('form');
     
 
 

@@ -2,9 +2,13 @@ import { logout, checkAuth } from '../fetch-utils.js';
 
 const logoutButton = document.querySelector('#logout');
 
-checkAuth();
+// checkAuth();
 
 logoutButton.addEventListener('click', async () => {
     await logout();
     window.location.href = '../';
 });
+
+const todosEl = document.querySelector('.todosContainer');
+const shiftNotesEl = document.querySelector('.shiftNotesContainer');
+

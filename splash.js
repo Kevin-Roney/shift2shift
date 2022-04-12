@@ -11,4 +11,4 @@ getStartedBtn.addEventListener('click', () => {
 
 aboutUsBtn.addEventListener('click', () => {
     location.replace('./about');
-})
+});

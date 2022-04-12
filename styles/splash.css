@@ -11,7 +11,8 @@
 }
 
 .splash-main img {
-    width: 50%;
+    width: 35%;
+    z-index: 2;
 }
 .startUsing{
     color: white;
@@ -19,7 +20,14 @@
     border-radius: 5px;
     padding: 10px;
     border: none;
-    margin: 10px
+    margin: 10px;
+    z-index: 1;
+    transition: background-color 0.25s linear 0s;
+}
+
+.startUsing:hover {
+    background-color: #00acac;
+    cursor: pointer;
 }
 
 .aboutUsBtn{
@@ -28,13 +36,27 @@
     border-radius: 5px;
     padding: 10px;
     border: none;
-    margin: 10px
+    margin: 10px;
+    z-index: 1;
+    transition: background-color 0.25s linear 0s;
+}
+
+.aboutUsBtn:hover {
+    background-color: #009e9e;
+    cursor: pointer;
 }
 
 .splash-container{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: white;
+    background-color: #007f7f50;
+    padding: 25px;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    border-radius: 25px;
 }
 
 .description{
@@ -48,4 +70,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0;
+}
+
+.left {
+    min-width: 600px;
 }

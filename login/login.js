@@ -1,20 +1,18 @@
-import { checkAuth, 
-    logout, 
-    createBusiness,
-    createAdmin,
-    signupUser } from '../fetch-utils.js';
+/* eslint-disable no-console */
+import { 
+    redirectIfLoggedIn,
+    signInUser } from '../fetch-utils.js';
 
 // checkAuth();
 
-const logoutButton = document.getElementById('logout');
+const loginForm = document.querySelector('form');
 
-logoutButton.addEventListener('click', () => {
-    logout();
-});
-
-businessSignUpForm.addEventListener('submit', async (event) => {
+loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const user = await signupUser(signUpEmail.value, signUpPassword.value);
+    const data = new FormData(loginForm);
+    const signUpEmail = data.get('email');
+    const password = data.get('password');
+    const user = await signInUser(signUpEmail, password);
 
     if (user) {
         redirectIfLoggedIn();

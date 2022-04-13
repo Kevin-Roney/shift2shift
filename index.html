@@ -32,10 +32,40 @@
             </div>
 
             <div class="right">
-                <div> 
-                    "I love Shift2Shift and use it daily with my businesses, and I should know a thing or two about running stuff, I'm the president"<br> -Joe Biden probably<br><br>
-                </div>
+                <div class="slideshow-container">
+
+                    <!-- SLIDE SHOW ELEMENTS -->
+                    <div class="mySlides">
+                      <q>X Æ A-Xii's going through a phase where they only want to talk in binary, thankfully Shift2Shift has given us some middle ground for family communication until Neuralink is ready</q>
+                      <p class="author">- Elon Musk</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q>After what happened in the Staten Island, we found Shift2Shift to be a more cost effective way to keep tabs on employee communication rather than hiring Pinkerton agents</q>
+                        <p class="author">- Jeff Bezos</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q>Shift2Shift? What's that? Is Skete on there?</q>
+                        <p class="author">- Ye</p>
+                    </div>
+                    
+                    <div class="mySlides">
+                      <q>I love Shift2Shift and use it daily with my businesses, and I should know a thing or two about running stuff, I'm the president.</q>
+                      <p class="author">- Joe Biden</p>
+                    </div>
+                    
+                    <div class="mySlides">
+                      <q>I love using shift to shift. It allows my employees to manage themselves so I don't have to activate my empathy emulation chip </q>
+                      <p class="author">- Mark Zuckerberg </p>
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    
+                    </div>
             </div>
+            <!-- END SLIDE SHOW CONTAINER -->
 
         </div>
         <div class="splash-btn-container">
@@ -44,6 +74,35 @@
         </div>
     </main>
     <script type="module" src="./splash.js"></script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+        
 </body>
 
 </html>

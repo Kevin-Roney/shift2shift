@@ -9,6 +9,12 @@ const shiftNotesEl = document.querySelector('.shiftNotesContainer');
 const todosForm = document.querySelector('#todoListForm');
 const shiftNotesForm = document.querySelector('#shiftNotesForm');
 
+const chatButtonEl = document.querySelector('#chat');
+
+chatButtonEl.addEventListener('click', async () => {
+    window.location.href = '../chat';
+});
+
 logoutButton.addEventListener('click', async () => {
     await logout();
     window.location.href = '../';
@@ -27,6 +33,7 @@ todosForm.addEventListener('submit', async (e) => {
     const data = new FormData(todosForm);
     const todoObj = data.get('todo');
     const urgencyObj = data.get('urgency');
+
     await createTodo({
         todo_name: todoObj,
         urgency: urgencyObj,

@@ -11,8 +11,11 @@ checkAuth();
 const allChatsEl = document.querySelector('#all-chats');
 const formEl = document.querySelector('form');
 
+const mainButton = document.querySelector('#main');
 
-
+mainButton.addEventListener('click', async () => {
+    window.location.href = '../main/';
+});
 
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();

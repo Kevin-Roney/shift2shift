@@ -84,3 +84,12 @@
 .left {
     min-width: 600px;
 }
+
+.login-button {
+    z-index: 2;
+    width: 75px;
+    height: 75px;
+    background-color: #00acac;
+    cursor: pointer;
+    color: white;
+}

@@ -89,7 +89,8 @@
     z-index: 2;
     width: 75px;
     height: 75px;
-    background-color: #00acac;
+    background-color: #00acac6d;
     cursor: pointer;
     color: white;
+    border-radius: 20px 5px 20px;
 }

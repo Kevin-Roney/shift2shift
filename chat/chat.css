@@ -1,0 +1,55 @@
+.chatroom {
+    width: 90%;
+    height: 80vh;
+    border: dotted 1px black;
+    display: grid;
+    grid-template-rows: 19fr 1fr;
+}
+
+.input-area input {
+    width: 90%;
+    text-align: right;
+}
+
+input:focus {
+    outline: none;
+    background-color: lightblue;
+}
+
+.input-area {
+    border-top: dotted 1px black;
+    padding: 5px;
+}
+
+.chat-message {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+p {
+    margin: 10px;
+}
+
+.chat-message .sender:hover {
+    color: blue;
+    font-family: 1.2rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.is-me {
+    border: solid 1px black;
+    color: red !important;
+
+}
+
+.input-area p {
+    color: blue;
+    opacity: .4;
+}
+
+.employee-joined {
+    color: blue;
+    opacity: .4;
+}

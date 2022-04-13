@@ -9,6 +9,7 @@ import {
 const employeeSignUpForm = document.querySelector('form');
 
 employeeSignUpForm.addEventListener('submit', async (event) => {
+    
     event.preventDefault();
 
     const data = new FormData(employeeSignUpForm);
@@ -28,13 +29,14 @@ employeeSignUpForm.addEventListener('submit', async (event) => {
         
     }
     
-    const employye = {
+    const employee = {
         name: employeeName,
         email: email,
         avatar_img: URL,
         business_code: bizCode
     };
-    await createEmployee(employye);
+
+    await createEmployee(employee);
     
     if (user) {
         redirectIfLoggedIn();

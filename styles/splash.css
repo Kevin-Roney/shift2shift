@@ -1,4 +1,4 @@
-.splash-main{
+.splash-main {
     width: 100%;
     height: 100%;
     background-color: #f5f5f5;
@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     z-index: 1;
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -14,7 +14,8 @@
     width: 35%;
     z-index: 2;
 }
-.startUsing{
+
+.startUsing {
     color: white;
     background-color: #007f7f;
     border-radius: 5px;
@@ -30,7 +31,7 @@
     cursor: pointer;
 }
 
-.aboutUsBtn{
+.aboutUsBtn {
     color: white;
     background-color: #025d6a;
     border-radius: 5px;
@@ -46,7 +47,7 @@
     cursor: pointer;
 }
 
-.splash-container{
+.splash-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,13 +60,13 @@
     border-radius: 25px;
 }
 
-.description{
+.description {
     white-space: wrap;
     max-width: 350px;
     margin-right: 300px;
 }
 
-.splash-btn-container{
+.splash-btn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,4 +94,82 @@
     cursor: pointer;
     color: white;
     border-radius: 20px 5px 20px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background: transparent;
+}
+
+/* Slides */
+.mySlides {
+    display: none;
+    padding: 80px;
+    text-align: center;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: teal;
+    color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {
+    font-style: italic;
+}
+
+/* Add a blue color to the author */
+.author {
+    color: white;
 }

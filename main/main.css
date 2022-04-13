@@ -1,3 +1,7 @@
+body {
+    background-color: #E1E5F2;
+}
+
 textarea{
     resize: none;
 }
@@ -15,25 +19,62 @@ main{
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: auto;
     overflow: auto;
     max-height: 500px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.todo-container {
+    width: 300px;
+    background-color: #001A23;
 }
 
 .low-urgency {
-    color:  green;
+    color:  #4dff40;
 }
 
 .medium-urgency {
-    color: orange;
+    color: #ff9e29;
 }
 
 .high-urgency {
-    color: darkred;
+    color: #ba0c00;
 }
 
-.logo-container {
+.main-page {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    margin-left: 200px;
+}
+
+.buttons {
+    z-index: 2;
+    width: 75px;
+    height: 75px;
+    background-color: #00acac6d;
+    cursor: pointer;
+    color: white;
+    border-radius: 20px 5px 20px;
+}
+
+.todo {
+    z-index: 2;
+    width: 240px;
+    background-color: #008f8fac;
+    cursor: pointer;
+    border-radius: 20px 5px 20px;
+    margin: 1%;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+
+form > button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #007f7f;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 4px;
 }

@@ -27,6 +27,7 @@ todosForm.addEventListener('submit', async (e) => {
     const data = new FormData(todosForm);
     const todoObj = data.get('todo');
     const urgencyObj = data.get('urgency');
+
     await createTodo({
         todo_name: todoObj,
         urgency: urgencyObj,

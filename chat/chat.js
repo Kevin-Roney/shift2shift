@@ -11,9 +11,6 @@ checkAuth();
 const allChatsEl = document.querySelector('#all-chats');
 const formEl = document.querySelector('form');
 
-
-
-
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();
 

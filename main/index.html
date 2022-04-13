@@ -17,22 +17,31 @@
 <body> 
     <button id="logout">Logout</button>
     <main>
-        <form id="todoListForm">
-            <label for="todo">To-Do:</label>
-            <input name="todo" required />
-            <label for="urgency">Urgency:</label>
-            <select name="urgency">
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-             </select>
-             <button>Submit</button>
-         </form>
-       <section class="todosContainer">
-        </section>
-       <section class="shiftNotesContainer">
+        <div class="todo-container">
+            <form id="todoListForm">
+                <label for="todo">To-Do:</label>
+                <input name="todo" required />
+                <label for="urgency">Urgency:</label>
+                <select name="urgency">
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                </select>
+                <button>Submit</button>
+            </form>
+            <section class="todosContainer">
+            </section>
+        </div>
 
-       </section>
+        <div class="shiftNote-container">
+            <section class="shiftNotesContainer">
+            </section>
+            <form id="shiftNotesForm">
+                <label for="shiftNotes">Shift Notes:</label>
+                <textarea cols="30" rows="5" minlength="10" name="shiftNotes" required></textarea>
+                <button>Submit</button>
+            </form>
+        </div>
     </main>
     <script type="module" src="./main.js"></script>
 </body>

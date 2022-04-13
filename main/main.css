@@ -1,0 +1,39 @@
+textarea{
+    resize: none;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.todosContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: auto;
+    overflow: auto;
+    max-height: 500px;
+}
+
+.low-urgency {
+    color:  green;
+}
+
+.medium-urgency {
+    color: orange;
+}
+
+.high-urgency {
+    color: darkred;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

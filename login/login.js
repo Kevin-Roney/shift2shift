@@ -3,8 +3,6 @@ import {
     redirectIfLoggedIn,
     signInUser } from '../fetch-utils.js';
 
-// checkAuth();
-
 const loginForm = document.querySelector('form');
 
 loginForm.addEventListener('submit', async (event) => {

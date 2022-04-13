@@ -145,6 +145,14 @@ footer {
     background-color: #e1e5f2;
 }
 
+.employee-body {
+    background-color: #e1e5f2;
+}
+
+.login-body {
+    background-color: #e1e5f2;
+}
+
 form {
     display: flex;
     flex-direction: column;   
@@ -165,4 +173,17 @@ form {
     color: white;
     padding: 13px 16px;
     border-radius: 4px;
+}
+
+.shiftNote-container {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: auto;
+    overflow: auto;
+    max-height: 500px;
+    width: 100%;
 }

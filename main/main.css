@@ -15,9 +15,14 @@ main{
     justify-content: center;
     align-items: center;
     padding: 0;
-    width: auto;
     overflow: auto;
     max-height: 500px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.todo-container {
+    width: 300px;
 }
 
 .low-urgency {
@@ -36,4 +41,11 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-left: 200px;
 }

@@ -1,8 +1,6 @@
 /* eslint-disable no-console */
 import { 
-    makeImageUrl,
     createEmployee,
-    uploadImage,
     redirectIfLoggedIn,
     signupUser } from '../fetch-utils.js';
 
@@ -21,18 +19,11 @@ employeeSignUpForm.addEventListener('submit', async (event) => {
 
     const user = await signupUser(email, password);
 
-    const image = data.get('image');
-    let URL = null;
-    if (image.name){
-        const uploadedImage = await uploadImage(image);
-        URL = makeImageUrl(uploadedImage.Key);
-        
-    }
     
     const employee = {
         name: employeeName,
         email: email,
-        avatar_img: URL,
+        avatar_img: null,
         business_code: bizCode
     };
 

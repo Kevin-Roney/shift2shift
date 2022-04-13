@@ -42,3 +42,9 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     }
     businessSignUpForm.reset();
 });
+
+const backToPage = document.querySelector('.backto');
+
+backToPage.addEventListener('click', () => {
+    window.location = '../';
+});

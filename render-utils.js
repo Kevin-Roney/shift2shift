@@ -24,3 +24,16 @@ export function renderTodo(todo) {
     }
     return div;
 }
+
+export function renderShiftNote(note){
+    const div = document.createElement('div');
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+
+    div.classList.add('shift-note');
+    h3.textContent = note.note;
+    p.textContent = `Sent by: ${note.sent_by}`;
+
+    div.append(h3, p);
+    return div;
+}

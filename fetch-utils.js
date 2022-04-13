@@ -58,7 +58,6 @@ export async function createEmployee(employee) {
             business_code: employee.business_code,
             is_admin: false
         });
-
     return checkError(response);
 }
 
@@ -84,7 +83,6 @@ export async function createTodo(todo) {
             completed_by: null,
             business_code: todo.business_code,
         });
-    console.log(response);
     return checkError(response);
 }
 
@@ -96,7 +94,6 @@ export async function getTodo(todo) {
         .match({
             business_code: todo.business_code
         });
-    console.log(response);
     return checkError(response);
 }
 
@@ -106,12 +103,40 @@ export async function completeTodo(todo, user) {
         .from('todos')
         .update({ is_complete: true, completed_by: user })
         .match({ id: todo });
-    
-    console.log(todo, user);
+
     return checkError(response);
 }
 
+export async function deleteTodo(todo) {
+    const response = await client 
+        .from('todos')
+        .delete()
+        .match({ id: todo });
+    
+    return checkError(response);
+}
 
+export async function createShiftNote(note){
+    const response = await client
+        .from('shiftNotes')
+        .insert({
+            note: note.note,
+            business_code: note.business_code,
+            sent_by: note.sent_by
+        });
+    return checkError(response);
+}
+
+export async function getShiftNotes(shift){
+    const response = await client
+        .from('shiftNotes')
+        .select('*')
+        .match({
+            business_code: shift.business_code
+        });
+    return checkError(response);
+
+}
 
 //function allows user to chat in chat page
 export async function sendChat(someMessage) {
@@ -141,8 +166,6 @@ export function redirectIfLoggedIn() {
 
 export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
-
-    // await createEmployee(employee);
 
     return response.user;
 }

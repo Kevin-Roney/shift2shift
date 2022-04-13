@@ -105,10 +105,10 @@ footer {
 
   }
 
-#logout {
+.buttons-div {
     position: fixed;
-    right: 20px;
-    top: 90px;
+    right: 2px;
+    top: 2px;
 }
 
 .auth-main {
@@ -155,7 +155,8 @@ footer {
 
 form {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
+    color: white;
 }
 
 .signup-form input {

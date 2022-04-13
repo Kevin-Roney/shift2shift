@@ -1,0 +1,50 @@
+.about-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: black;
+    font-style: italic;
+}
+
+a:hover {
+    color: blue;
+    transform: scale(1.01);
+}
+
+img {
+    width: 125px;
+}
+
+.profile-picture {
+    border-radius: 50%;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin-left: 100px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.backto {
+    margin-top: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}

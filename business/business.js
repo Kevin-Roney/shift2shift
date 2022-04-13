@@ -4,9 +4,7 @@ import {
     createBusiness,
     createAdmin,
     signupUser,
-    redirectIfLoggedIn,
-    uploadImage,
-    makeImageUrl } from '../fetch-utils.js';
+    redirectIfLoggedIn, } from '../fetch-utils.js';
 
 const businessSignUpForm = document.querySelector('form');
 
@@ -29,15 +27,12 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     });
 
     await signupUser(email, password);
-    const image = data.get('image');
-    const uploadedImage = await uploadImage(image);
-    const URL = makeImageUrl(uploadedImage.Key);
 
     await createAdmin({
         name: admin,
         business_code: code,
         email: email,
-        avatar_img: URL
+        avatar_img: null
     });
     
     if (user) {

@@ -13,18 +13,19 @@
     <title>Document</title>
 </head>
 
-<body> 
+<body class="business-body"> 
     <img class="backto" src="../assets/shift2shiftrough.png" alt="">
     <main>
-        <header><div>Not an employer click <a href="../employee">here</a> </div></header>
-        <img class="logo" src="../assets/shift2shiftrough.png" alt="logo"/>
-        <form class="signup-form">
-            <label>Business Name</label><input type="text" name="bizName" placeholder="Business Name"/>
-            <label>Administrator Name</label><input type="text" name="adminName" placeholder="Your Name"/>
-            <label>Email</label><input type="email" name="email" placeholder="example@email.com"/>
-            <label>Password</label><input type="password" name="password" placeholder="*******"/>
-            <button>Sign Up</button>
-        </form>
+        <div class="form-container">
+            <form class="signup-form">
+                <label>Business Name</label><input type="text" name="bizName" placeholder="Business Name"/>
+                <label>Administrator Name</label><input type="text" name="adminName" placeholder="Your Name"/>
+                <label>Email</label><input type="email" name="email" placeholder="example@email.com"/>
+                <label>Password</label><input type="password" name="password" placeholder="*******"/>
+                <button>Sign Up</button>
+            </form>
+            <div>Not an employer? click <a href="../employee">here</a> </div>
+        </div>
     </main>
     <script type="module" src="./business.js"></script>
 </body>

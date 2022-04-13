@@ -139,5 +139,51 @@ footer {
 
 .logo {
     width: 35%;
-    
+}
+
+.business-body {
+    background-color: #e1e5f2;
+}
+
+.employee-body {
+    background-color: #e1e5f2;
+}
+
+.login-body {
+    background-color: #e1e5f2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;   
+}
+
+.signup-form input {
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px #c8c9ca;
+    padding: 13px 16px;
+    width: 600px;
+}
+
+.signup-form button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #007f7f;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 4px;
+}
+
+.shiftNote-container {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: auto;
+    overflow: auto;
+    max-height: 500px;
+    width: 100%;
 }

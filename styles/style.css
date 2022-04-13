@@ -129,3 +129,15 @@ footer {
 .auth-container button {
     margin: 10px;
 }
+
+.backto {
+    width: 125px;
+    margin-top: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 35%;
+    
+}

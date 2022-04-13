@@ -35,3 +35,9 @@ employeeSignUpForm.addEventListener('submit', async (event) => {
         console.error(user);
     }
 });
+
+const backToPage = document.querySelector('.backto');
+
+backToPage.addEventListener('click', () => {
+    window.location = '../';
+});

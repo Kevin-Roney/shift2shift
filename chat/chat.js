@@ -3,18 +3,25 @@ import {
     checkAuth,
     sendChat,
     client,
+    logout,
     getEmployee
 } from '../fetch-utils.js';
+const logoutButton = document.querySelector('#logout');
 
 checkAuth();
 
 const allChatsEl = document.querySelector('#all-chats');
 const formEl = document.querySelector('form');
 
-const mainButton = document.querySelector('#signupButton');
+const mainButton = document.querySelector('#main'); 
 
 mainButton.addEventListener('click', async () => {
     window.location.href = '../main/';
+});
+
+logoutButton.addEventListener('click', async () => {
+    await logout();
+    window.location.href = '../';
 });
 
 formEl.addEventListener('submit', async (e) => {

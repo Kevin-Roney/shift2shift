@@ -24,6 +24,12 @@ logoutButton.addEventListener('click', async () => {
     window.location.href = '../';
 });
 
+function playAOL() {
+    var audio = new Audio('../assets/imrcv.wav');
+    audio.volume = 0.5;
+    audio.play();
+}
+
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -67,9 +73,19 @@ window.addEventListener('load', async () => {
 
             chatItemOuterEl.append(chatMessageEl, chatSenderEl);
             allChatsEl.append(chatItemOuterEl);
+            
+            playAOL();  
 
             return employeeJoinedEl;
         })
 
         .subscribe();
+});
+
+const backToPage = document.querySelector('.logosmol');
+
+backToPage.style.cursor = 'pointer';
+
+backToPage.addEventListener('click', () => {
+    window.location = '../';
 });

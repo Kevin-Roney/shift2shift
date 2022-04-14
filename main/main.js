@@ -58,6 +58,12 @@ todosForm.addEventListener('submit', async (e) => {
     await fetchAndDisplay();
 });
 
+function playSticky() {
+    var audio = new Audio('../assets/V6TLQ57-paper-sticky-note-3.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
+
 shiftNotesForm.addEventListener('submit', async (e) => {
 
     e.preventDefault();
@@ -71,6 +77,8 @@ shiftNotesForm.addEventListener('submit', async (e) => {
         business_code: business_code,
         sent_by: user.name
     });
+
+    playSticky();
 
     shiftNotesForm.reset();
     await fetchAndDisplay();

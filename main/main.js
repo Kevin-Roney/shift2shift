@@ -121,11 +121,14 @@ async function fetchAndDisplay() {
         } else {
             todoEl.classList.add('high-urgency');
         }
-        todoEl.addEventListener('click', async () => {
-            await completeTodo(todo.id, user.name);
-            play();
-            await fetchAndDisplay();
-        });
+
+        if (todo.is_complete === false) {
+            todoEl.addEventListener('click', async () => {
+                await completeTodo(todo.id, user.name);
+                play();
+                await fetchAndDisplay();
+            });
+        }
 
         if (user.is_admin) {
             const deleteButton = document.createElement('button');

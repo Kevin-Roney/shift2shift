@@ -127,6 +127,14 @@ export async function createShiftNote(note){
     return checkError(response);
 }
 
+export async function deleteShiftNote(note) {
+    const response = await client
+        .from('shiftNotes')
+        .delete()
+        .match({ business_code: note.business_code });
+    return checkError(response);
+}
+
 export async function getShiftNotes(shift){
     const response = await client
         .from('shiftNotes')

@@ -1,4 +1,4 @@
-import { logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, checkAuth } from '../fetch-utils.js';
+import { logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, deleteShiftNote, checkAuth } from '../fetch-utils.js';
 import { renderShiftNote, renderTodo } from '../render-utils.js';
 const logoutButton = document.querySelector('#logout');
 
@@ -8,6 +8,7 @@ const todosEl = document.querySelector('.todosContainer');
 const shiftNotesEl = document.querySelector('.shiftNotesContainer');
 const todosForm = document.querySelector('#todoListForm');
 const shiftNotesForm = document.querySelector('#shiftNotesForm');
+const deleteAllNotes = document.querySelector('.delete');
 
 const chatButtonEl = document.querySelector('#chat');
 
@@ -26,6 +27,7 @@ window.addEventListener('load', async () => {
     if (user.is_admin) {
         alert(`Your business code is ${user.business_code}`);
     }
+    if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
 });
 
 todosForm.addEventListener('submit', async (e) => {
@@ -112,3 +114,9 @@ async function fetchAndDisplay() {
         shiftNotesEl.append(shiftNoteEl);
     }
 }
+
+deleteAllNotes.addEventListener('click', async () => {
+    const user = await getEmployee();
+    const deleteS = await deleteShiftNote(user.business_code);
+    console.log(deleteS);
+});

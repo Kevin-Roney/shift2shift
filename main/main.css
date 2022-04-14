@@ -107,3 +107,27 @@ form > button {
 .complete {
     color: white;
 }
+
+.delete {
+    margin-bottom: 10px;
+    background-color: #007f7f;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 4px;
+}
+
+.todo-box > button {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    background-color: #bb0000;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 4px;
+}
+
+.todo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import { logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, checkAuth } from '../fetch-utils.js';
+import { logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, deleteShiftNote, checkAuth } from '../fetch-utils.js';
 import { renderShiftNote, renderTodo } from '../render-utils.js';
 const logoutButton = document.querySelector('#logout');
 
@@ -8,6 +8,7 @@ const todosEl = document.querySelector('.todosContainer');
 const shiftNotesEl = document.querySelector('.shiftNotesContainer');
 const todosForm = document.querySelector('#todoListForm');
 const shiftNotesForm = document.querySelector('#shiftNotesForm');
+const deleteAllNotes = document.querySelector('.delete');
 
 const chatButtonEl = document.querySelector('#chat');
 
@@ -26,6 +27,7 @@ window.addEventListener('load', async () => {
     if (user.is_admin) {
         alert(`Your business code is ${user.business_code}`);
     }
+    if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
 });
 
 todosForm.addEventListener('submit', async (e) => {
@@ -75,8 +77,10 @@ async function fetchAndDisplay() {
     const todos = await getTodo({ business_code });
 
     for (let todo of todos) {
+        const todoContainer = document.createElement('div');
         const todoEl = await renderTodo(todo);
-
+        todoContainer.classList.add('todo-box');
+        todoContainer.append(todoEl);
         if (todo.urgency === 1){
             todoEl.classList.add('low-urgency');
         } else if (todo.urgency === 2) {
@@ -97,10 +101,10 @@ async function fetchAndDisplay() {
                 await fetchAndDisplay();
             });
 
-            todoEl.append(deleteButton);
+            todoContainer.append(deleteButton);
         }
 
-        todosEl.append(todoEl);
+        todosEl.append(todoContainer);
     }
 
     //Shift Notes Fetch and Display
@@ -112,3 +116,9 @@ async function fetchAndDisplay() {
         shiftNotesEl.append(shiftNoteEl);
     }
 }
+
+deleteAllNotes.addEventListener('click', async () => {
+    const user = await getEmployee();
+    await deleteShiftNote(user.business_code);
+    fetchAndDisplay();
+});

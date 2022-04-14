@@ -4,6 +4,7 @@ export function renderTodo(todo) {
     
     div.classList.add('todo');
     h3.textContent = todo.todo_name;
+    h3.classList.add('todo-name');
     div.append(h3);
 
     if (todo.is_complete === true) {

@@ -1,4 +1,4 @@
-import { logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, deleteShiftNote, checkAuth } from '../fetch-utils.js';
+import { client, logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, deleteShiftNote, checkAuth } from '../fetch-utils.js';
 import { renderShiftNote, renderTodo } from '../render-utils.js';
 const logoutButton = document.querySelector('#logout');
 
@@ -28,6 +28,17 @@ window.addEventListener('load', async () => {
         alert(`Your business code is ${user.business_code}`);
     }
     if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
+});
+
+window.addEventListener('load', async () => {
+    await client
+        .from('*')
+        .on('*', payload => {
+            fetchAndDisplay();
+            console.log('Change received!', payload);
+        })
+
+        .subscribe();
 });
 
 function playDing() {
@@ -110,11 +121,14 @@ async function fetchAndDisplay() {
         } else {
             todoEl.classList.add('high-urgency');
         }
-        todoEl.addEventListener('click', async () => {
-            await completeTodo(todo.id, user.name);
-            play();
-            await fetchAndDisplay();
-        });
+
+        if (todo.is_complete === false) {
+            todoEl.addEventListener('click', async () => {
+                await completeTodo(todo.id, user.name);
+                play();
+                await fetchAndDisplay();
+            });
+        }
 
         if (user.is_admin) {
             const deleteButton = document.createElement('button');

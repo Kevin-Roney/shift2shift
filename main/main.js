@@ -30,6 +30,12 @@ window.addEventListener('load', async () => {
     if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
 });
 
+function playDing() {
+    var audio = new Audio('../assets/servicebell.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
+
 todosForm.addEventListener('submit', async (e) => {
 
     e.preventDefault();
@@ -45,6 +51,8 @@ todosForm.addEventListener('submit', async (e) => {
         urgency: urgencyObj,
         business_code: business_code,
     });
+
+    playDing();
 
     todosForm.reset();
     await fetchAndDisplay();
@@ -68,6 +76,12 @@ shiftNotesForm.addEventListener('submit', async (e) => {
     await fetchAndDisplay();
 });
 
+function play() {
+    var audio = new Audio('../assets/anime-wow-sound-effect.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
+
 async function fetchAndDisplay() {
 
     //Todos Fetch and Display
@@ -90,6 +104,7 @@ async function fetchAndDisplay() {
         }
         todoEl.addEventListener('click', async () => {
             await completeTodo(todo.id, user.name);
+            play();
             await fetchAndDisplay();
         });
 

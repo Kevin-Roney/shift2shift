@@ -23,11 +23,11 @@ main{
     max-height: 500px;
     width: 100%;
     max-width: 100%;
+    background-color: #001A23;
 }
 
 .todo-container {
     width: 300px;
-    background-color: #001A23;
 }
 
 .low-urgency {
@@ -77,4 +77,33 @@ form > button {
     color: white;
     padding: 13px 16px;
     border-radius: 4px;
+}
+
+
+.logosmol {
+    width: 125px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.shift-note {
+    z-index: 2;
+    width: 240px;
+    background-color: #008f8fac;
+    cursor: pointer;
+    border-radius: 0% 100% 0% 100% / 92% 0% 100% 8%;
+    margin: 1%;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.complete {
+    color: white;
 }

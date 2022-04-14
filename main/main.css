@@ -116,11 +116,18 @@ form > button {
     border-radius: 4px;
 }
 
-.todo > button {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.todo-box > button {
+    margin-top: 1px;
+    margin-bottom: 1px;
     background-color: #bb0000;
     color: white;
     padding: 7px 10px;
     border-radius: 4px;
+}
+
+.todo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

@@ -77,8 +77,10 @@ async function fetchAndDisplay() {
     const todos = await getTodo({ business_code });
 
     for (let todo of todos) {
+        const todoContainer = document.createElement('div');
         const todoEl = await renderTodo(todo);
-
+        todoContainer.classList.add('todo-box');
+        todoContainer.append(todoEl);
         if (todo.urgency === 1){
             todoEl.classList.add('low-urgency');
         } else if (todo.urgency === 2) {
@@ -99,10 +101,10 @@ async function fetchAndDisplay() {
                 await fetchAndDisplay();
             });
 
-            todoEl.append(deleteButton);
+            todoContainer.append(deleteButton);
         }
 
-        todosEl.append(todoEl);
+        todosEl.append(todoContainer);
     }
 
     //Shift Notes Fetch and Display
@@ -117,6 +119,6 @@ async function fetchAndDisplay() {
 
 deleteAllNotes.addEventListener('click', async () => {
     const user = await getEmployee();
-    const deleteS = await deleteShiftNote(user.business_code);
-    console.log(deleteS);
+    await deleteShiftNote(user.business_code);
+    fetchAndDisplay();
 });

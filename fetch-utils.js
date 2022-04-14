@@ -131,7 +131,7 @@ export async function deleteShiftNote(note) {
     const response = await client
         .from('shiftNotes')
         .delete()
-        .match({ business_code: note.business_code });
+        .match({ business_code: note });
     return checkError(response);
 }
 

@@ -30,6 +30,12 @@ window.addEventListener('load', async () => {
     if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
 });
 
+function playDing() {
+    var audio = new Audio('../assets/servicebell.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
+
 todosForm.addEventListener('submit', async (e) => {
 
     e.preventDefault();
@@ -46,9 +52,17 @@ todosForm.addEventListener('submit', async (e) => {
         business_code: business_code,
     });
 
+    playDing();
+
     todosForm.reset();
     await fetchAndDisplay();
 });
+
+function playSticky() {
+    var audio = new Audio('../assets/V6TLQ57-paper-sticky-note-3.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
 
 shiftNotesForm.addEventListener('submit', async (e) => {
 
@@ -64,9 +78,17 @@ shiftNotesForm.addEventListener('submit', async (e) => {
         sent_by: user.name
     });
 
+    playSticky();
+
     shiftNotesForm.reset();
     await fetchAndDisplay();
 });
+
+function play() {
+    var audio = new Audio('../assets/anime-wow-sound-effect.mp3');
+    audio.volume = 0.5;
+    audio.play();
+}
 
 async function fetchAndDisplay() {
 
@@ -90,6 +112,7 @@ async function fetchAndDisplay() {
         }
         todoEl.addEventListener('click', async () => {
             await completeTodo(todo.id, user.name);
+            play();
             await fetchAndDisplay();
         });
 

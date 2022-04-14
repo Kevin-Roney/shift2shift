@@ -34,7 +34,6 @@ businessSignUpForm.addEventListener('submit', async (event) => {
         email: email,
         avatar_img: null
     });
-    
     if (user) {
         redirectIfLoggedIn();
     } else {

@@ -11,6 +11,7 @@ export function renderTodo(todo) {
         const pTag = document.createElement('p');
 
         todoEl.classList.add('complete');
+        h3.classList.add('completed');
         pTag.textContent = `${todo.completed_by} completed this task!`;
         
         todoEl.append(pTag);

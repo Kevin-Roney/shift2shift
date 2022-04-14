@@ -26,6 +26,7 @@ img {
 
 .profile-picture {
     border-radius: 50%;
+    filter: saturate(0%);
 }
 
 h3 {
@@ -34,6 +35,7 @@ h3 {
     align-items: center;
     max-width: 80%;
     margin-left: 100px;
+    text-align: center;
 }
 
 p {
@@ -47,4 +49,8 @@ p {
     margin-top: 10px;
     margin-left: 20px;
     cursor: pointer;
+}
+
+.about-body {
+    background-color: #e1e5f2;
 }

@@ -105,10 +105,10 @@ footer {
 
   }
 
-#logout {
+.buttons-div {
     position: fixed;
-    right: 20px;
-    top: 90px;
+    right: 2px;
+    top: 2px;
 }
 
 .auth-main {
@@ -131,7 +131,7 @@ footer {
 }
 
 .backto {
-    width: 125px;
+    width: 50px;
     margin-top: 10px;
     margin-left: 20px;
     cursor: pointer;
@@ -155,7 +155,8 @@ footer {
 
 form {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
+    columns: black;
 }
 
 .signup-form input {
@@ -176,7 +177,6 @@ form {
 }
 
 .shiftNote-container {
-    border: solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -186,4 +186,6 @@ form {
     overflow: auto;
     max-height: 500px;
     width: 100%;
+    width: 300px;
+    background-color: #001A23;
 }

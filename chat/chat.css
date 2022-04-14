@@ -4,10 +4,11 @@
     border: dotted 1px black;
     display: grid;
     grid-template-rows: 19fr 1fr;
+    background-color: white;
 }
 
 .input-area input {
-    width: 90%;
+    width: 100%;
     text-align: right;
 }
 
@@ -19,6 +20,7 @@ input:focus {
 .input-area {
     border-top: dotted 1px black;
     padding: 5px;
+    background-color: #00a7a7;
 }
 
 .chat-message {
@@ -52,4 +54,17 @@ p {
 .employee-joined {
     color: blue;
     opacity: .4;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #007f7f;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 4px;
+}
+
+body {
+    background-color: #e1e5f2;
 }

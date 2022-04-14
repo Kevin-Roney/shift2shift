@@ -21,7 +21,11 @@ logoutButton.addEventListener('click', async () => {
 });
 
 window.addEventListener('load', async () => {
+    const user = await getEmployee();
     await fetchAndDisplay();
+    if (user.is_admin) {
+        alert(`Your business code is ${user.business_code}`);
+    }
 });
 
 todosForm.addEventListener('submit', async (e) => {

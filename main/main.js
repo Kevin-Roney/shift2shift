@@ -66,7 +66,6 @@ todosForm.addEventListener('submit', async (e) => {
     playDing();
 
     todosForm.reset();
-    await fetchAndDisplay();
 });
 
 function playSticky() {
@@ -92,7 +91,6 @@ shiftNotesForm.addEventListener('submit', async (e) => {
     playSticky();
 
     shiftNotesForm.reset();
-    await fetchAndDisplay();
 });
 
 function play() {
@@ -126,7 +124,6 @@ async function fetchAndDisplay() {
             todoEl.addEventListener('click', async () => {
                 await completeTodo(todo.id, user.name);
                 play();
-                await fetchAndDisplay();
             });
         }
 
@@ -135,7 +132,6 @@ async function fetchAndDisplay() {
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', async () => {
                 await deleteTodo(todo.id);
-                await fetchAndDisplay();
             });
 
             todoContainer.append(deleteButton);
@@ -157,5 +153,4 @@ async function fetchAndDisplay() {
 deleteAllNotes.addEventListener('click', async () => {
     const user = await getEmployee();
     await deleteShiftNote(user.business_code);
-    fetchAndDisplay();
 });

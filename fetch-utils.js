@@ -34,13 +34,10 @@ export async function createAdmin(employee) {
     const response = await client
         .from('employees')
         .insert({
-            name: employee.name,
-            business_code: employee.business_code,
+            // this shorthand will copy all properties on the object without having to type them out
+            ...employee,
             shift: 3,
             is_admin: true,
-            avatar_img: employee.avatar_img,
-            email: employee.email,
-            user_id: employee.user_id
         });
 
     return checkError(response);
@@ -51,11 +48,7 @@ export async function createEmployee(employee) {
     const response = await client
         .from('employees')
         .insert({
-            name: employee.name,
-            email: employee.email,
-            avatar_img: employee.avatar_img,
-            user_id: employee.user_id,
-            business_code: employee.business_code,
+            ...employee,
             is_admin: false
         });
     return checkError(response);
@@ -77,11 +70,9 @@ export async function createTodo(todo) {
     const response = await client 
         .from('todos')
         .insert({
-            todo_name: todo.todo_name,
-            urgency: todo.urgency,
+            ...todo,
             is_complete: false,
             completed_by: null,
-            business_code: todo.business_code,
         });
     return checkError(response);
 }
@@ -119,11 +110,8 @@ export async function deleteTodo(todo) {
 export async function createShiftNote(note){
     const response = await client
         .from('shiftNotes')
-        .insert({
-            note: note.note,
-            business_code: note.business_code,
-            sent_by: note.sent_by
-        });
+        // seems like thi would work if all the propeties match
+        .insert(note);
     return checkError(response);
 }
 

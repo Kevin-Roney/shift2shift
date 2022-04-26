@@ -4,7 +4,8 @@ import {
     createBusiness,
     createAdmin,
     signupUser,
-    redirectIfLoggedIn, } from '../fetch-utils.js';
+    redirectIfLoggedIn,
+} from '../fetch-utils.js';
 
 const businessSignUpForm = document.querySelector('form');
 
@@ -14,7 +15,7 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     
     const data = new FormData(businessSignUpForm);
-    const code = Math.ceil(Math.random() * 99999);
+    const business_code = Math.ceil(Math.random() * 99999);
     const bizName = data.get('bizName');
     const admin = data.get('adminName');
     const email = data.get('email');
@@ -23,13 +24,15 @@ businessSignUpForm.addEventListener('submit', async (event) => {
     const user = await signupUser(email, password);
     await createBusiness({
         name: bizName,
-        business_code: code
+        // if the key and variable name are the same, you can use this shorthand
+        business_code
     });
     
     await createAdmin({
         name: admin,
-        business_code: code,
-        email: email,
+        // same here: if the key and variable name are the same, you can use this shorthand
+        business_code,
+        email,
     });
     if (user) {
         redirectIfLoggedIn();

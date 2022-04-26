@@ -1,4 +1,5 @@
 import { client, logout, createTodo, getEmployee, getTodo, completeTodo, deleteTodo, getShiftNotes, createShiftNote, deleteShiftNote, checkAuth } from '../fetch-utils.js';
+import { playWow, playDing, playSticky } from '../audio-utils.js';
 import { renderShiftNote, renderTodo } from '../render-utils.js';
 const logoutButton = document.querySelector('#logout');
 
@@ -24,10 +25,8 @@ logoutButton.addEventListener('click', async () => {
 window.addEventListener('load', async () => {
     const user = await getEmployee();
     await fetchAndDisplay();
-    if (user.is_admin) {
-        alert(`Your business code is ${user.business_code}`);
-    }
-    if (user.is_admin === false){ deleteAllNotes.style.display = 'none';}
+    if (user.is_admin) alert(`Your business code is ${user.business_code}`);
+    else deleteAllNotes.style.display = 'none';
 });
 
 window.addEventListener('load', async () => {
@@ -41,11 +40,7 @@ window.addEventListener('load', async () => {
         .subscribe();
 });
 
-function playDing() {
-    var audio = new Audio('../assets/servicebell.mp3');
-    audio.volume = 0.5;
-    audio.play();
-}
+
 
 todosForm.addEventListener('submit', async (e) => {
 
@@ -60,19 +55,13 @@ todosForm.addEventListener('submit', async (e) => {
     await createTodo({
         todo_name: todoObj,
         urgency: urgencyObj,
-        business_code: business_code,
+        business_code,
     });
 
     playDing();
 
     todosForm.reset();
 });
-
-function playSticky() {
-    var audio = new Audio('../assets/V6TLQ57-paper-sticky-note-3.mp3');
-    audio.volume = 0.5;
-    audio.play();
-}
 
 shiftNotesForm.addEventListener('submit', async (e) => {
 
@@ -93,12 +82,6 @@ shiftNotesForm.addEventListener('submit', async (e) => {
     shiftNotesForm.reset();
 });
 
-function play() {
-    var audio = new Audio('../assets/anime-wow-sound-effect.mp3');
-    audio.volume = 0.5;
-    audio.play();
-}
-
 async function fetchAndDisplay() {
 
     //Todos Fetch and Display
@@ -109,21 +92,19 @@ async function fetchAndDisplay() {
 
     for (let todo of todos) {
         const todoContainer = document.createElement('div');
-        const todoEl = await renderTodo(todo);
+        const todoEl = renderTodo(todo);
         todoContainer.classList.add('todo-box');
         todoContainer.append(todoEl);
-        if (todo.urgency === 1){
-            todoEl.classList.add('low-urgency');
-        } else if (todo.urgency === 2) {
-            todoEl.classList.add('medium-urgency');
-        } else {
-            todoEl.classList.add('high-urgency');
-        }
 
-        if (todo.is_complete === false) {
+        const urgencies = ['low', 'medium', 'high'];
+        const urgencyString = urgencies[todo.urgency - 1];
+        
+        todoEl.classList.add(`${urgencyString}-urgency`);
+
+        if (!todo.is_complete) {
             todoEl.addEventListener('click', async () => {
                 await completeTodo(todo.id, user.name);
-                play();
+                playWow();
             });
         }
 
@@ -145,7 +126,8 @@ async function fetchAndDisplay() {
     const shiftNotes = await getShiftNotes({ business_code });
 
     for (let shiftNote of shiftNotes) {
-        const shiftNoteEl = await renderShiftNote(shiftNote);
+        // no need for await on render functions, since they do no fetching
+        const shiftNoteEl = renderShiftNote(shiftNote);
         shiftNotesEl.append(shiftNoteEl);
     }
 }

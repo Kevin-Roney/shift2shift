@@ -6,6 +6,8 @@ import {
     logout,
     getEmployee
 } from '../fetch-utils.js';
+import { playAOL } from '../audio-utils.js';
+
 const logoutButton = document.querySelector('#logout');
 
 checkAuth();
@@ -24,23 +26,17 @@ logoutButton.addEventListener('click', async () => {
     window.location.href = '../';
 });
 
-function playAOL() {
-    var audio = new Audio('../assets/imrcv.wav');
-    audio.volume = 0.5;
-    audio.play();
-}
-
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const data = new FormData(formEl);
-    const user = await getEmployee();
+    const { email, user_id, business_code } = await getEmployee();
 
     await sendChat({
-        sender_email: user.email,
+        sender_email: email,
         text: data.get('message'),
-        user_id: user.user_id,
-        business_code: user.business_code
+        user_id,
+        business_code
     });
 
     formEl.reset();
@@ -78,7 +74,6 @@ window.addEventListener('load', async () => {
 
             return employeeJoinedEl;
         })
-
         .subscribe();
 });
 
